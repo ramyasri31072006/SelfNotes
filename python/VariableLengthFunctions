@@ -1,1 +1,96 @@
+'''
+variable length argument
+------------------------
+
+variable length arguments are used when you don't know in advance how many
+arguments a function will receive
+
+There are 2 main types:
+1. Variable number of Positional Arguments --> *args
+ Stores data in tuple.
+2. Variable number of Keyword Arguments --> **kwargs
+ Stores data in Dictonary
+
+'''
+# 1.Positional Arguments
+#Ex-1:Shopping Cart --> Imagine a online shopping Cart. A customer may buy 1,2.......20 products
+
+def Shopping_Cart(*cost):
+     total_price = 0
+     for item in cost:
+          total_price += item
+     return total_price
+   
+print(Shopping_Cart(500))
+print(Shopping_Cart(200,300,500))
+print(Shopping_Cart(8399,273,736,2345))
+
+#Ex-2:Sending an Email to Multiple People
+
+def send_email(*reciptents):
+     for person in reciptents:
+          print("Sending email to: ",person)
+
+send_email(
+    "alice@example.com",
+    "bob@example.com",
+    "charlie@example.com"
+)
+
+
+#2. KeyWord Arguments
+#EX-1: Creating User Profiles:
+
+def create_profile(**details):
+     print("User Profile:")
+     for key , val in details.values():
+          print(key," : ",val)
+
+create_profile(
+     name = "Ramya",
+     age = 20,
+     Profession = "Developer"
+            )
+
+create_profile(
+    name="Ravi",
+    age=22,
+    city="Hyderabad"
+)
+
+# Database Query Filters
+#Imagine searching for users:
+
+def search_users(**filters):
+    print("Searching with:", filters)
+
+
+search_users(
+    city="Hyderabad",
+    age=25
+)
+
+search_users(
+    name="Ravi",
+    profession="Developer"
+)
+
+
+# positional Argument + keyword Argument
+#Imagine ordering pizza
+
+def place_order(item,qty = 1,*toppings,**details):
+
+    print(item)
+    print(qty)
+
+    for i in toppings:
+        print(i)
+
+    for k , v in details.items():
+        print(k," : ",v)
+
+
+place_order("Pizza",2,"Extra chees","seasoning",address = "Flat 48",cupons ="code123")
+
 
