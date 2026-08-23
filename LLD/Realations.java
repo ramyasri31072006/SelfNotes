@@ -27,21 +27,19 @@
 /*Here is a quick guide to understanding the four types of relationships in Object-Oriented Design (Low-Level Design):
 
 Association ("Uses-a" or "Has-a"):
-
 A general relationship where one object uses or interacts with another.
 Both objects have their own independent lifecycles.
 Example: A Driver can drive a Car, but the driver can exist without the car, and the car can exist without the driver.
-Composition ("Part-of" with strict lifecycle):
 
+Composition ("Part-of" with strict lifecycle):
 A strong "has-a" relationship where the child object cannot exist independently of the parent object. If the parent is destroyed, the child is also destroyed.
 Example: A Car has an Engine. The Engine is created inside the Car and cannot exist without it (as seen in your code snippet).
 
 Aggregation ("Part-of" with independent lifecycle):
-
 A weaker "has-a" relationship where the child object can exist independently of the parent object.
 Example: A Department has Professors. If the department is closed, the professors still exist.
-Dependency ("Depends-on"):
 
+Dependency ("Depends-on"):
 A temporary relationship where one class uses another class, typically as a method parameter or local variable, but doesn't store it as a member field.
 Example: A Car has a move(Fuel f) method. The car depends on Fuel to move, but doesn't own it.
 Here is the corrected code demonstrating these relationships clearly based on your problem:*/
@@ -75,12 +73,10 @@ class Ride {
     }
 }
 // Dependency ("Uses-a"):
-
 // Occurs when one class uses another temporarily (e.g., as a method parameter).
 // In our code, Checkout takes PaymentMethod as a parameter in the process() method. It doesn't store it as an instance variable, so Checkout depends on PaymentMethod.
 
 // Realization / Implementation ("Implements"):
-
 // Occurs when a class implements an interface or a contract defined by another type.
 // In our code, CardPayment implements the PaymentMethod interface using the implements keyword. Therefore, CardPayment has a Realization relationship with PaymentMethod.
 // Based on this, the correct pair is Checkout-PaymentMethod -> Dependency, CardPayment -> Realization.
