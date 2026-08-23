@@ -104,3 +104,36 @@ class Checkout {
         method.pay();
     }
 }
+
+//------------------------------------------------------------------------------------------------------------------------------------------------
+class Book {
+    private String title;
+
+    public Book(String title) {
+        this.title = title;
+    }
+}
+
+class Library {
+    private List<Book> books; 
+
+    public Library(List<Book> books) {
+        this.books = books;
+    }
+}
+
+class Member {
+    public void borrow(Book book) { 
+        System.out.println("Borrowed: " + book);
+    }
+}
+
+// Library-Book (Aggregation): In the code, the Library class holds a reference to a List<Book>,
+// but the Book objects are passed into the Library constructor from the outside. 
+// This means Book instances can exist independently of the Library (if the library closes, the books aren't necessarily destroyed).
+// This represents Aggregation (a "has-a" relationship with independent lifecycles).
+
+// Member-Book (Association): In the Member class, the borrow(Book book) method takes a Book as a parameter.
+// The Member is associated with the Book during the borrow action, meaning they interact with each other, but neither owns the other's lifecycle. 
+// This represents Association.
+
