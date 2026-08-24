@@ -137,3 +137,43 @@ class Member {
 // The Member is associated with the Book during the borrow action, meaning they interact with each other, but neither owns the other's lifecycle. 
 // This represents Association.
 
+
+//------------------------------------------------------------------------------------------------------------------------------------
+
+// You are designing a media system:
+
+// Playlist contains multiple Song objects
+// Song can exist without a playlist
+// A method temporarily plays a Song passed as parameter
+// Question: Which option correctly represents the relationship types between Playlist–Song and Method–Song?
+
+// Code Snippet
+
+class Song {
+    private String title;
+
+    public Song(String title) {
+        this.title = title;
+    }
+}
+
+class Playlist {
+    private List<Song> songs; 
+
+    public Playlist(List<Song> songs) {
+        this.songs = songs;
+    }
+}
+
+class Player {
+    public void play(Song song) { 
+        System.out.println("Playing: " + song);
+    }
+}
+
+// Correct Answer:
+
+// Playlist-Song -> Aggregation, Method-Song -> Dependency  
+// Explanation:
+// Option B is correct, because Songs exist independently of Playlist, so it's Aggregation.  
+// The method using Song as a parameter indicates temporary usage, which is Dependency.
